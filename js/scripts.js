@@ -3,12 +3,7 @@ $(document).ready(function() {
     event.preventDefault();
     var sentence = $("#input").val();
     var words = sentence.split(" ");
-    var bigWords = words.map(function(word){
-      if (word.length > 2) {
-        return word;
-      }
-    });
-    bigWords = bigWords.reverse().join(" ").toString();
+    var bigWords = words.filter(word => word.length > 3).reverse().join(" ").toString();
     console.log(bigWords);
     $(".result").html("<p>" + bigWords + "</p>")
   });
